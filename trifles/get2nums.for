@@ -1,0 +1,12 @@
+C GET TWO NUMBERS AND WRITE TO CONSOL IN FORMAT 'F8.2'
+      PROGRAM GET2NUMS
+      REAL A, B
+   10 FORMAT(F8.2)
+   20 FORMAT(F8.2,1X,F8.2)
+      READ(5, 20) A
+      READ(5, 10) B
+      WRITE(3,20) A, B
+      STOP
+      END
+
+
