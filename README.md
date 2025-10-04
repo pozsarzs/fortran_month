@@ -14,7 +14,9 @@ This small source code collection was created on this occasion.
 
 |  Filename  |Function                                        |
 |------------|------------------------------------------------|
+|trifles/*   |small examples                                  |
 |quadequa.for|Discriminant and root(s) of a quadratic equation|
+|mbconv.for  |Modbus register number/address converter utility|
 
 Copyright (C) 2024 Pozsar Zsolt <pozsarzs@gmail.com>  
 GitHub: <https://github.com/pozsarzs/fortran_month>  

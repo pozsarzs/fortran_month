@@ -1,0 +1,2 @@
+Converts the specified Modbus register number into a register address and type,
+and the specified register address and type into a register number.
