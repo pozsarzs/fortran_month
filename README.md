@@ -16,11 +16,11 @@ This small source code collection was created on this occasion.
 |------------|----------------------------------------------------|
 |bin-cpm/*   |binaries for CP/M or Z-System (ZPM)                 |
 |trifles/*   |small examples                                      |
+|factor.for  |Factorial calculator                                |
 |mbconv.for  |Modbus register number/address converter utility    |
 |nrmsqrt.for |Square root calculation with Newton–Raphson method  |
 |primes.for  |Calculating prime numbers up to the specified number|
 |quadequa.for|Discriminant and root(s) of a quadratic equation    |
-
 
 Copyright (C) 2024 Pozsar Zsolt <pozsarzs@gmail.com>  
 GitHub: <https://github.com/pozsarzs/fortran_month>  
