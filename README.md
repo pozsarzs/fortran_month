@@ -12,11 +12,15 @@ This small source code collection was created on this occasion.
 
 **Files**  
 
-|  Filename  |Function                                        |
-|------------|------------------------------------------------|
-|trifles/*   |small examples                                  |
-|quadequa.for|Discriminant and root(s) of a quadratic equation|
-|mbconv.for  |Modbus register number/address converter utility|
+|  Filename  |Function                                            |
+|------------|----------------------------------------------------|
+|bin-cpm/*   |binaries for CP/M or Z-System (ZPM)                 |
+|trifles/*   |small examples                                      |
+|mbconv.for  |Modbus register number/address converter utility    |
+|nrmsqrt.for |Square root calculation with Newton–Raphson method  |
+|primes.for  |Calculating prime numbers up to the specified number|
+|quadequa.for|Discriminant and root(s) of a quadratic equation    |
+
 
 Copyright (C) 2024 Pozsar Zsolt <pozsarzs@gmail.com>  
 GitHub: <https://github.com/pozsarzs/fortran_month>  

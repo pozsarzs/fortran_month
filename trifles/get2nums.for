@@ -1,12 +1,15 @@
 C GET TWO NUMBERS AND WRITE TO CONSOL IN FORMAT 'F8.2'
+
       PROGRAM GET2NUMS
+      INTEGER DIN, DOUT
       REAL A, B
+C I/0 DEVICES
+      DATA DIN /5/, DOUT /3/
+C     DATA DIN /5/, DOUT /6/
    10 FORMAT(F8.2)
    20 FORMAT(F8.2,1X,F8.2)
-      READ(5, 20) A
-      READ(5, 10) B
-      WRITE(3,20) A, B
+      READ(DIN, 20) A
+      READ(DIN, 10) B
+      WRITE(DOUT,20) A, B
       STOP
       END
-
-

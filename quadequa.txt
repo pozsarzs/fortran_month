@@ -1,2 +1,0 @@
-Read the values a, b, c, then calculate and print the discriminant and the
-roots.
