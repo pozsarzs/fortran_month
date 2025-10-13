@@ -34,7 +34,9 @@ C ** FORMAT DECLARATIONS **
    94 FORMAT(6H SQRT(, E10.5, 2H)=, E10.5)
    95 FORMAT(E10.5)
    96 FORMAT(31H The number cannot be negative!)
-   97 FORMAT(35H Enter a value (with decimal point:)
-   98 FORMAT(51H SQUARE ROOT CALCULATION WITH NEWTONâ€“RAPHSON METHOD)
+   97 FORMAT(36H Enter a value (with decimal point):)
+   98 FORMAT(51H SQUARE ROOT CALCULATION WITH NEWTON-€“RAPHSON METHOD)
    99 FORMAT(1H )
       END
+
+
