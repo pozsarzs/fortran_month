@@ -1,0 +1,357 @@
+C ******************************************************************************
+C Fortran Month * source code example collection
+C (C) 2025 Pozsar Zsolt <pozsarzs@gmail.com>, Licence: CC0 Universal v1.0
+C means.for
+C Calculating the mean of numbers
+C ******************************************************************************
+
+      PROGRAM MEANS
+      INTEGER DIN, DOUT, TF, RF
+      COMMON /GLOBMENU/IMITEM(15)
+      COMMON /GLOBDATA/RNUMS(10), INUMS
+C I/0 DEVICES
+C     DATA DIN/5/, DOUT/3/, TF/8/, RF/8/
+      DATA DIN/5/, DOUT/6/, TF/8/, RF/8/
+C HEADER
+      CALL SPLIT(DOUT)
+      WRITE(DOUT, 98)
+C MENU
+   10 CALL SPLIT(DOUT)
+      WRITE(DOUT, 97)
+      WRITE(DOUT, 96)
+      WRITE(DOUT, 95)
+      WRITE(DOUT, 94)
+      WRITE(DOUT, 93)
+      WRITE(DOUT, 92) 
+      WRITE(DOUT, 91)
+      WRITE(DOUT, 90)
+      WRITE(DOUT, 89)
+      WRITE(DOUT, 88)
+      WRITE(DOUT, 87)
+      WRITE(DOUT, 86)
+      WRITE(DOUT, 85)
+      WRITE(DOUT, 84)
+      WRITE(DOUT, 83)
+      CALL SPLIT(DOUT)
+      WRITE(DOUT, 82)
+      READ(DIN, 81) I
+      WRITE(DOUT, 99)
+      GOTO(20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 60,
+     1 10), MENU(I)
+   20 CALL GETDATA(DIN, DOUT)
+      GOTO 10
+   21 CALL SHOWDATA(DOUT)
+      WRITE(DOUT, 99)
+      GOTO 10
+   22 IF (ILOADDATA(RF) .EQ. 1) GOTO 10
+      WRITE(DOUT, 77)
+      GOTO 10
+   23 IF (ISAVEDATA(RF) .EQ. 1) GOTO 10
+      WRITE(DOUT, 78)
+      GOTO 10
+   24 IF (IALLMEANS(DOUT, .FALSE.) .EQ. 1) GOTO 10
+      GOTO 10
+   25 WRITE(DOUT, 80) RARIMEAN()
+      WRITE(DOUT, 99)
+      GOTO 10
+   26 WRITE(DOUT, 80) RGEOMEAN()
+      WRITE(DOUT, 99)
+      GOTO 10
+   27 WRITE(DOUT, 80) RHARMEAN()
+      WRITE(DOUT, 99)
+      GOTO 10
+   28 WRITE(DOUT, 80) RQUAMEAN()
+      WRITE(DOUT, 99)
+      GOTO 10
+   29 WRITE(DOUT, 80) RLOGMEAN()
+      WRITE(DOUT, 99)
+      GOTO 10
+   30 WRITE(DOUT, 80) RMEDIAN()
+      WRITE(DOUT, 99)
+      GOTO 10
+   31 WRITE(DOUT, 80) RMODUS()
+      WRITE(DOUT, 99)
+      GOTO 10
+   32 WRITE(DOUT, 80) RSTDDEV()
+      WRITE(DOUT, 99)
+      GOTO 10
+   33 IF (IALLMEANS(TF, .TRUE.) .EQ. 1) GOTO 10
+      WRITE(DOUT, 79)
+      GOTO 10
+C END OF PROGRAM
+   60 WRITE(DOUT, 99)
+      STOP
+
+C ** FORMAT DECLARATIONS **
+   77 FORMAT(25H Data file reading error!)
+   78 FORMAT(25H Data file writing error!)
+   79 FORMAT(27H Report file writing error!)
+   80 FORMAT(8H Result:, 14X, F10.4)
+   81 FORMAT(A1)
+   82 FORMAT(15H Please select:, 1X)
+   83 FORMAT(7H q Quit)
+   84 FORMAT(15H s Save summary)
+   85 FORMAT(21H 8 Standard deviation, X, F10.4)
+   86 FORMAT(8H 7 Modus, 14X, F10.4)
+   87 FORMAT(9H 6 Median, 13X, F10.4)
+   88 FORMAT(19H 5 Logarithmic mean, 3X, F10.4)
+   89 FORMAT(17H 4 Quadratic mean, 5X, F10.4)
+   90 FORMAT(16H 3 Harmonic mean, 6X, F10.4)
+   91 FORMAT(17H 2 Geometric mean, 5X, F10.4)
+   92 FORMAT(18H 1 Arithmetic mean, 4X, f10.4)
+   93 FORMAT(19H 0 All calculations)
+   94 FORMAT(27H w Write input data to file)
+   95 FORMAT(28H r Read input data from file)
+   96 FORMAT(18H h Show input data)
+   97 FORMAT(19H e Input data entry)
+   98 FORMAT(32H CALCULATING THE MEAN OF NUMBERS)
+   99 FORMAT(1H )
+      END
+
+C *** INITIALIZE GLOBAL ARRAYS ***
+      BLOCK DATA
+      COMMON /GLOBMENU/IMITEM(15)
+      COMMON /GLOBDATA/RNUMS(10), INUMS
+      DATA IMITEM/1He, 1Hh, 1Hr, 1Hw, 1H0, 1H1, 1H2, 1H3, 1H4, 1H5,
+     1 1H6, 1H7, 1H8, 1Hs, 1Hq/
+      END
+
+C *** WRITE SPLITTER TO CONSOLE ***
+      SUBROUTINE SPLIT(LUN)
+      WRITE(LUN, 199)
+      RETURN
+  199 FORMAT(1H , 31(1H-))
+      END
+
+C *** RETURN THE NUMBER OF THE SELECTED MENUITEM, RESULT: 1..16 ***
+      INTEGER FUNCTION MENU(SLCT)
+      INTEGER SLCT, VALID
+      COMMON /GLOBMENU/IMITEM(15)
+      DATA VALID/16/
+      DO 200 I = 1, 15
+      IF (SLCT .EQ. IMITEM(I)) VALID = I
+  200 CONTINUE
+      MENU = VALID
+      RETURN
+      END
+
+C *** ENTER INPUT DATA ***
+      SUBROUTINE GETDATA(LUNI, LUNO)
+      COMMON /GLOBDATA/RNUMS(10), INUMS
+      IREAD = 0
+      WRITE(LUNO, 399)
+      DO 310 I = 1, 10
+      READ(LUNI, *, ERR = 320, END = 320) X
+      IF (X .EQ. 0.0) GOTO 320
+      RNUMS(I) = X
+      IREAD = IREAD + 1
+  310 CONTINUE
+      GOTO 340
+  320 CONTINUE
+      DO 330 I = IREAD + 1, 10
+      RNUMS(I) = 0.0
+  330 CONTINUE
+      INUMS = IREAD
+  340 RETURN
+  399 FORMAT(37H Please enter the numbers (0 to end):)
+      END
+
+C *** SHOW INPUT DATA ***
+      SUBROUTINE SHOWDATA(LUN)
+      COMMON /GLOBDATA/RNUMS(10), INUMS
+      WRITE(LUN, 498)
+      WRITE(LUN, 499)
+      DO 410 I = 1, INUMS, 5
+      WRITE(LUN, 497) RNUMS(I), RNUMS(I + 1), RNUMS(I + 2),
+     1 RNUMS(I + 3), RNUMS(I + 4)
+  410 CONTINUE
+      WRITE(LUN, 499)
+      WRITE(LUN, 496)
+      RETURN
+  496 FORMAT(41H Note: The logarithmic mean is calculated,
+     1 27H from the first two values.)
+  497 FORMAT(1X, F10.4, 4(4X, F10.4))
+  498 FORMAT(29H Input data for calculations:)
+  499 FORMAT(1H )
+      END
+
+C *** READ INPUT NUMBERS FROM FILE ***
+      FUNCTION ILOADDATA(LUN)
+      COMMON /GLOBDATA/RNUMS(10), INUMS
+      OPEN(LUN, FILE = 'NUMBERS.DAT', STATUS = 'OLD',
+     1 FORM = 'UNFORMATTED', ERR = 510)
+      READ(LUN) INUMS, (RNUMS(I), I = 1, 10)
+      CLOSE(LUN)
+      ILOADDATA = 1
+      RETURN      
+  510 ILOADDATA = 0
+      RETURN
+      END
+
+C *** WRITE INPUT NUMBERS TO FILE ***
+      FUNCTION ISAVEDATA(LUN)
+      COMMON /GLOBDATA/RNUMS(10), INUMS
+      OPEN(LUN, FILE = 'NUMBERS.DAT', STATUS = 'UNKNOWN',
+     1 FORM = 'UNFORMATTED', ERR = 610)
+      WRITE(LUN) INUMS, (RNUMS(I), I = 1, 10)
+      CLOSE(LUN)
+      ISAVEDATA = 1
+      RETURN      
+  610 ISAVEDATA = 0
+      RETURN      
+      END
+
+C *** CALCULATING ALL MEANS AND WRITE TO CONSOLE OR FILE ***
+      FUNCTION IALLMEANS(LUN, F)
+      LOGICAL F
+      IF (F .EQ. .TRUE.) OPEN(LUN, 'REPORT.TXT', ERR = 720)
+      IF (F .EQ. .FALSE.) GOTO 710
+      CALL SHOWDATA(LUN)
+      WRITE(LUN, 799)
+  710 WRITE(LUN, 798)
+      WRITE(LUN, 799)
+      WRITE(LUN, 797) RARIMEAN()
+      WRITE(LUN, 796) RGEOMEAN()
+      WRITE(LUN, 795) RHARMEAN()
+      WRITE(LUN, 794) RQUAMEAN()
+      WRITE(LUN, 793) RLOGMEAN()
+      WRITE(LUN, 792) RMEDIAN()
+      WRITE(LUN, 791) RMODUS()
+      WRITE(LUN, 790) RSTDDEV()
+      WRITE(LUN, 799)
+      IF (F .EQ. .TRUE.) CLOSE(LUN)
+      IALLMEANS = 1
+      RETURN
+  720 IALLMEANS = 0
+      RETURN      
+  790 FORMAT(19H Standard deviation, X, F10.4)
+  791 FORMAT(6H Modus, 14X, F10.4)
+  792 FORMAT(7H Median, 13X, F10.4)
+  793 FORMAT(17H Logarithmic mean, 3X, F10.4)
+  794 FORMAT(15H Quadratic mean, 5X, F10.4)
+  795 FORMAT(14H Harmonic mean, 6X, F10.4)
+  796 FORMAT(15H Geometric mean, 5X, F10.4)
+  797 FORMAT(16H Arithmetic mean, 4X, f10.4)
+  798 FORMAT(9H Results:)
+  799 FORMAT(1H )
+      END
+      
+C *** CALCULATING ARITHMETIC MEAN ***
+      FUNCTION RARIMEAN()
+      REAL SUMM
+      COMMON /GLOBDATA/RNUMS(10), INUMS
+      SUMM = 0
+      DO 810 I = 1, INUMS
+      SUMM = SUMM + RNUMS(I)
+  810 CONTINUE
+      RARIMEAN = SUMM / INUMS
+      RETURN
+      END
+      
+C *** CALCULATING GEOMETRIC MEAN ***
+      FUNCTION RGEOMEAN()
+      REAL PROD
+      COMMON /GLOBDATA/RNUMS(10), INUMS
+      PROD = 1
+      DO 910 I = 1, INUMS
+      PROD = PROD + RNUMS(I)
+  910 CONTINUE
+      RGEOMEAN = PROD ** (1.0 / INUMS)
+      RETURN
+      END
+
+C *** CALCULATING HARMONIC MEAN ***
+      FUNCTION RHARMEAN()
+      REAL SUMM
+      COMMON /GLOBDATA/RNUMS(10), INUMS
+      SUMM = 0
+      DO 1010 I = 1, INUMS
+      SUMM = SUMM + RNUMS(I)**(-1)
+ 1010 CONTINUE
+      RHARMEAN = SUMM / INUMS
+      RETURN
+      END
+
+C *** CALCULATING QUADRATIC MEAN ***
+      FUNCTION RQUAMEAN()
+      REAL SUMM
+      COMMON /GLOBDATA/RNUMS(10), INUMS
+      SUMM = 0
+      DO 1110 I = 1, INUMS
+      SUMM = SUMM + RNUMS(I)**2
+ 1110 CONTINUE
+      RQUAMEAN = SQRT((1.0/INUMS) * SUMM)
+      RETURN
+      END
+
+C *** CALCULATING LOGARITMIC MEAN ***
+      FUNCTION RLOGMEAN()
+      COMMON /GLOBDATA/RNUMS(10), INUMS
+      IF (RNUMS(1) .EQ. RNUMS(2)) RLOGMEAN = RNUMS(1)
+      IF (RNUMS(1) .NE. RNUMS(2)) RLOGMEAN = (RNUMS(2) - RNUMS(1)) /
+     1(LOG(RNUMS(2)) - LOG(RNUMS(1)))
+      RETURN
+      END
+
+C *** CALCULATING MEDIAN ***
+      FUNCTION RMEDIAN()
+      REAL RSNUMS(10)
+      COMMON /GLOBDATA/RNUMS(10), INUMS
+C COPY DATA TO LOCAL ARRAY      
+      DO 1310 I=1, INUMS
+      RSNUMS(I) = RNUMS(I)
+ 1310 CONTINUE
+C SORT DATA IN LOCAL ARRAY
+      DO 1330  I = 1, INUMS - 1
+      DO 1320 J = I + 1, INUMS
+      IF (RSNUMS(I) .LE. RSNUMS(J)) GOTO 1320
+      TEMP = RSNUMS(I)
+      RSNUMS(I) = RSNUMS(J)
+      RSNUMS(J) = TEMP
+ 1320 CONTINUE
+ 1330 CONTINUE
+C MEDIAN CALCULATION
+      IF (MOD(INUMS, 2) .EQ. 1) RMEDIAN = RSNUMS((INUMS + 1) / 2.0)
+      IF (MOD(INUMS, 2) .EQ. 0) RMEDIAN = (RSNUMS(INUMS / 2)
+     1+ RSNUMS(INUMS / 2 + 1)) / 2.0
+      RETURN
+      END
+
+C *** CALCULATING MODUS ***
+      FUNCTION RMODUS()
+      COMMON /GLOBDATA/RNUMS(10), INUMS
+      INTEGER I, J, MAXCOUNT, COUNT
+      REAL MODVAL
+      MAXCOUNT = 0
+      MODVAL = 0.0
+      DO 1420 I = 1, INUMS
+      COUNT = 0
+      DO 1410 J = 1, INUMS
+      IF (RNUMS(J) .EQ. RNUMS(I)) COUNT = COUNT + 1
+ 1410 CONTINUE
+      IF (COUNT .LE. MAXCOUNT) GOTO 1420
+      MAXCOUNT = COUNT
+      MODVAL = RNUMS(I)
+ 1420 CONTINUE
+      IF (MAXCOUNT .LE. 1) RMODUS = 0.0
+      IF (MAXCOUNT .GT. 1) RMODUS = MODVAL
+      RETURN
+      END
+
+C *** CALCULATING STANDARD DEVIATION ***
+      FUNCTION RSTDDEV()
+      COMMON /GLOBDATA/RNUMS(10), INUMS
+      REAL RMEAN, RSUM, RVAR
+      RSUM = 0.0
+      DO 1510 I = 1, INUMS
+      RSUM = RSUM + RNUMS(I)
+ 1510 CONTINUE
+      RMEAN = RSUM / INUMS
+      RVAR = 0.0
+      DO 1520 I = 1, INUMS
+      RVAR = RVAR + (RNUMS(I) - RMEAN)**2
+ 1520 CONTINUE
+      RVAR = RVAR / INUMS
+      RSTDDEV = SQRT(RVAR)
+      RETURN
+      END

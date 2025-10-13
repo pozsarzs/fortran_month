@@ -18,6 +18,7 @@ This small source code collection was created on this occasion.
 |trifles/*   |small examples                                      |
 |factor.for  |Factorial calculator                                |
 |mbconv.for  |Modbus register number/address converter utility    |
+|means.for   |Calculating the mean of numbers                     |
 |nrmsqrt.for |Square root calculation with Newton–Raphson method  |
 |primes.for  |Calculating prime numbers up to the specified number|
 |quadequa.for|Discriminant and root(s) of a quadratic equation    |
