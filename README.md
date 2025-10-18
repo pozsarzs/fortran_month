@@ -12,16 +12,19 @@ This small source code collection was created on this occasion.
 
 **Files**  
 
-|  Filename  |Function                                            |
-|------------|----------------------------------------------------|
-|bin-cpm/*   |binaries for CP/M or Z-System (ZPM)                 |
-|trifles/*   |small examples                                      |
-|factor.for  |Factorial calculator                                |
-|mbconv.for  |Modbus register number/address converter utility    |
-|means.for   |Calculating several means of numbers                |
-|nrmsqrt.for |Square root calculation with Newton–Raphson method  |
-|primes.for  |Calculating prime numbers up to the specified number|
-|quadequa.for|Discriminant and root(s) of a quadratic equation    |
+|No.|Filename      |Function                                            |Help |
+|--:|:------------:|:---------------------------------------------------|:---:|
+|   |`bin-cpm/*`   |binaries for CP/M or Z-System (ZPM)                 |     |
+|   |`trifles/*`   |small examples                                      |     |
+|  1|`factor.for`  |Factorial calculator                                |     |
+|  2|`mbconv.for`  |Modbus register number/address converter utility    |     |
+|  3|`means.for`   |Calculating several means of numbers                | yes |
+|  4|`nrmsqrt.for` |Square root calculation with Newton–Raphson method  | yes |
+|  5|`primes.for`  |Calculating prime numbers up to the specified number| yes |
+|  6|`quadequa.for`|Discriminant and root(s) of a quadratic equation    | yes |
+|  7|`rocket1.for` |Single-stage rocket liftoff from the ground         | yes |
+|  8|`rocket2.for` |Two-stage rocket liftoff from the ground            | yes |
+|  9|`rocketm.for` |Multi-stage rocket liftoff from the ground          | yes |
 
 Copyright (C) 2025 Pozsar Zsolt <pozsarzs@gmail.com>  
 GitHub: <https://github.com/pozsarzs/fortran_month>  
