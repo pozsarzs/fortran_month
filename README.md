@@ -26,5 +26,10 @@ This small source code collection was created on this occasion.
 |  8|`rocket2.for` |Two-stage rocket liftoff from the ground            | yes |
 |  9|`rocketm.for` |Multi-stage rocket liftoff from the ground          | yes |
 
+
+<img align="left" style="float: left; margin: 0 10px 0 0;" alt="Human-AI collaboration" src="help/hac.png">
+Human-machine collaboration - The programs are written by a human, the help files are written by AI.
+
+
 Copyright (C) 2025 Pozsar Zsolt <pozsarzs@gmail.com>  
 GitHub: <https://github.com/pozsarzs/fortran_month>  
