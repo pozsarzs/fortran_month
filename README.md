@@ -15,7 +15,9 @@ This small source code collection was created on this occasion.
 |No.|Filename      |Function                                            |Help |
 |--:|:------------:|:---------------------------------------------------|:---:|
 |   |`bin-cpm/*`   |binaries for CP/M or Z-System (ZPM)                 |     |
-|   |`trifles/*`   |small examples                                      |     |
+|   |`help/*`      |help for programs in .md format                     |     |
+|   |`manual/*`    |scanned original manual                             |     |
+|   |`trifles/*`   |small source code examples                          |     |
 |  1|`factor.for`  |Factorial calculator                                |     |
 |  2|`mbconv.for`  |Modbus register number/address converter utility    |     |
 |  3|`means.for`   |Calculating several means of numbers                | yes |
@@ -26,10 +28,9 @@ This small source code collection was created on this occasion.
 |  8|`rocket2.for` |Two-stage rocket liftoff from the ground            | yes |
 |  9|`rocketm.for` |Multi-stage rocket liftoff from the ground          | yes |
 
-
-<img align="left" style="float: left; margin: 0 10px 0 0;" alt="Human-AI collaboration" src="help/hac.png">
-Human-machine collaboration - The programs are written by a human, the help files are written by AI.
-
+<img align="left" style="float: left; margin: 0 0 0 0;" alt="Human-AI collaboration" src="help/hac.png">
+<b>Human-machine collaboration</b> The programs are written by a human, the help files are written by AI.<br>
+<br>
 
 Copyright (C) 2025 Pozsar Zsolt <pozsarzs@gmail.com>  
 GitHub: <https://github.com/pozsarzs/fortran_month>  
