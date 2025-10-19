@@ -1,4 +1,4 @@
-#Mathematical Description of Prime Number Search
+# Mathematical Description of Prime Number Search
 
 The program determines all prime numbers less than or equal to a given integer **N**.  
 
