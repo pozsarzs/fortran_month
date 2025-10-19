@@ -3,16 +3,19 @@
 The **Newton–Raphson method** is an iterative technique for finding successively better approximations to the roots of a real-valued function.
 
 To compute the **square root** of a positive number $S$, we solve the equation:
+
 $$
 f(x) = x^2 - S = 0
 $$
 
 The Newton–Raphson iteration formula is:
+
 $$
 x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
 $$
 
 Substituting $f(x) = x^2 - S$ and $f'(x) = 2x$ gives:
+
 $$
 x_{n+1} = \frac{1}{2}\left(x_n + \frac{S}{x_n}\right)
 $$
