@@ -1,7 +1,5 @@
-C ******************************************************************************
 C CREATE AN ARRAY OF 5 ELEMENTS, FILL IT BY MULTIPLYING THE INDEX BY 2
 C AND PRINT IT
-C ******************************************************************************
 
       PROGRAM ARRAY
       INTEGER I, J(5)

@@ -18,15 +18,13 @@ This small source code collection was created on this occasion.
 |   |`help/*`      |help for programs in .md format                     |     |
 |   |`manual/*`    |scanned original manual                             |     |
 |   |`trifles/*`   |small source code examples                          |     |
-|  1|`factor.for`  |Factorial calculator                                |     |
-|  2|`mbconv.for`  |Modbus register number/address converter utility    |     |
-|  3|`means.for`   |Calculating several means of numbers                | yes |
-|  4|`nrmsqrt.for` |Square root calculation with Newton–Raphson method  | yes |
-|  5|`primes.for`  |Calculating prime numbers up to the specified number| yes |
-|  6|`quadequa.for`|Discriminant and root(s) of a quadratic equation    | yes |
-|  7|`rocket1.for` |Single-stage rocket liftoff from the ground         | yes |
-|  8|`rocket2.for` |Two-stage rocket liftoff from the ground            | yes |
-|  9|`rocketm.for` |Multi-stage rocket liftoff from the ground          | yes |
+|  1|`ansilib.for` |ANSI Escape sequencies                              |     |
+|  2|`factor.for`  |Factorial calculator                                |     |
+|  3|`mbconv.for`  |Modbus register number/address converter utility    |     |
+|  4|`means.for`   |Calculating several means of numbers                | yes |
+|  5|`nrmsqrt.for` |Square root calculation with Newton–Raphson method  | yes |
+|  6|`primes.for`  |Calculating prime numbers up to the specified number| yes |
+|  7|`quadequa.for`|Discriminant and root(s) of a quadratic equation    | yes |
 
 <img align="left" style="float: left; margin: 0 0 0 0;" alt="Human-AI collaboration" src="help/hac.png">
 <b>Human-machine collaboration</b> The programs are written by a human, the help files are written by AI.<br>
