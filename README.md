@@ -18,9 +18,9 @@ This small source code collection was created on this occasion.
 |   |`help/*`      |help for programs in .md format                     |     |
 |   |`manual/*`    |scanned original manual                             |     |
 |   |`trifles/*`   |small source code examples                          |     |
-|  1|`ansilib.for` |ANSI Escape sequencies                              |     |
-|  2|`factor.for`  |Factorial calculator                                |     |
-|  3|`mbconv.for`  |Modbus register number/address converter utility    |     |
+|  1|`ansilib.for` |ANSI Escape sequencies                              | yes |
+|  2|`factor.for`  |Factorial calculator                                | no  |
+|  3|`mbconv.for`  |Modbus register number/address converter utility    | no  |
 |  4|`means.for`   |Calculating several means of numbers                | yes |
 |  5|`nrmsqrt.for` |Square root calculation with Newton–Raphson method  | yes |
 |  6|`primes.for`  |Calculating prime numbers up to the specified number| yes |
