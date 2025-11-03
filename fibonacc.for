@@ -1,12 +1,12 @@
 C ******************************************************************************
 C Fortran Month * source code example collection
 C (C) 2025 Pozsar Zsolt <pozsarzs@gmail.com>, Licence: CC0 Universal v1.0
-C primes.for
-C Calculating prime numbers up to the specified number
+C fibonacc.for
+C Calculating Fibonacci numbers up to the specified number
 C ******************************************************************************
 
-      PROGRAM PRIMES
-      INTEGER L, N, P, Q
+      PROGRAM FIBO
+      INTEGER L, N, P, Q(3)
       INTEGER DIN, DOUT
       INTEGER LINE(10)
 C I/0 DEVICES
@@ -22,26 +22,24 @@ C INPUT DATA
       WRITE(DOUT, 91)
 
 C CALCULATE
-   10 LINE(1) = 2
-      LINE(2) = 3
-      L = 3
-      P = 5
-   20 Q = 3
-   30 IF (Q**2 .GT. P) GOTO 50
-      IF (P / Q .EQ. FLOAT(P) / FLOAT(Q)) GOTO 40
-      Q = Q + 2
-      GOTO 30
-   40 P = P + 2
-      IF (P .LE. N) GOTO 20
-      GOTO 80
-   50 LINE(L) = P
-      L = L + 1
-      IF (L .LT. 11) GOTO 40
       L = 1
+      IDX = 0
+   10 IF (IDX .GT. 1) GOTO 20
+      Q(3) = IDX     
+      GOTO 30
+   20 Q(3) = Q(1) + Q(2)
+   30 LINE(L) = Q(3)
+      IDX = IDX + 1
+      IF (Q(3) .GT. N) GOTO 80
+      L = L + 1
+      Q(1) = Q(2)
+      Q(2) = Q(3)
+      IF (L .LT. 11) GOTO 10
 
-C WRITE NUMBERS TO CONSOLE
+C WRITE TO CONSOLE
       WRITE(DOUT, 90), (LINE(I), I = 1, 10)
-      GOTO 40 
+      L = 1
+      GOTO 10
 
 C WARNING: LOW VALUE
    78 WRITE(DOUT,93)
@@ -60,12 +58,12 @@ C END OF PROGRAM
 
 C ** FORMAT DECLARATIONS **
    90 FORMAT(1H , 10(I5, 2H; ))
-   91 FORMAT(15H Prime numbers:)
+   91 FORMAT(19H Fibonacci numbers:)
    92 FORMAT(I5)
    93 FORMAT(20H Minimum value is 5.)
    94 FORMAT(18H Wrong input data!)
    97 FORMAT(8H Up to? )
-   98 FORMAT(26H CALCULATING PRIME NUMBERS)
+   98 FORMAT(30H CALCULATING FIBONACCI NUMBERS)
    99 FORMAT(1H )
       END
 

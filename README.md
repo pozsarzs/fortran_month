@@ -20,12 +20,13 @@ This small source code collection was created on this occasion.
 |   |`trifles/*`   |small source code examples                          |     |
 |  1|`ansilib.for` |ANSI Escape sequencies                              | yes |
 |  2|`factor.for`  |Factorial calculator                                | no  |
-|  3|`mbconv.for`  |Modbus register number/address converter utility    | no  |
-|  4|`means.for`   |Calculating several means of numbers                | yes |
-|  5|`multab.for`  |Multiplication table                                |     |
-|  6|`nrmsqrt.for` |Square root calculation with Newton–Raphson method  | yes |
-|  7|`primes.for`  |Calculating prime numbers up to the specified number| yes |
-|  8|`quadequa.for`|Discriminant and root(s) of a quadratic equation    | yes |
+|  3|`fibonacc.for`|Fibonacci numbers                                   | yes |
+|  4|`mbconv.for`  |Modbus register number/address converter utility    | no  |
+|  5|`means.for`   |Calculating several means of numbers                | yes |
+|  6|`multab.for`  |Multiplication table                                | no  |
+|  7|`nrmsqrt.for` |Square root calculation with Newton–Raphson method  | yes |
+|  8|`primes.for`  |Calculating prime numbers up to the specified number| yes |
+|  9|`quadequa.for`|Discriminant and root(s) of a quadratic equation    | yes |
 
 <img align="left" style="float: left; margin: 0 0 0 0;" alt="Human-AI collaboration" src="help/hac.png">
 <b>Human-machine collaboration</b> The programs are written by a human, the help files are written by AI.<br>
