@@ -6,11 +6,13 @@ C Square root calculation with Newton–Raphson method
 C ******************************************************************************
 
       PROGRAM NRMSQRT
+C VARIABLES
       INTEGER DIN, DOUT
       REAL A, Q
 C I/0 DEVICES
       DATA DIN /5/, DOUT /3/
 C     DATA DIN /5/, DOUT /6/
+C INPUT DATA
       WRITE(DOUT, 97)
       READ(DIN, 95, ERR = 78) A
       IF (A .LT. 0) GOTO 79
@@ -28,8 +30,7 @@ C ERROR: NEGATIVE NUMBER
 C END OF PROGRAM
    80 WRITE(DOUT, 99)
       STOP
-
-C ** FORMAT DECLARATIONS **
+C FORMAT DECLARATIONS
    93 FORMAT(18H Wrong input data!)
    94 FORMAT(6H SQRT(, E10.5, 2H)=, E10.5)
    95 FORMAT(E10.5)
@@ -38,5 +39,4 @@ C ** FORMAT DECLARATIONS **
    98 FORMAT(51H SQUARE ROOT CALCULATION WITH NEWTON-RAPHSON METHOD)
    99 FORMAT(1H )
       END
-
 

@@ -6,6 +6,7 @@ C Calculating the mean of numbers
 C ******************************************************************************
 
       PROGRAM MEANS
+C VARIABLES
       INTEGER DIN, DOUT, TF, RF, INUMS
       COMMON /GLBMNU/IMITEM(15)
       COMMON /GLBDAT/RNUMS(10)
@@ -111,8 +112,7 @@ C MENU
 C END OF PROGRAM
    60 WRITE(DOUT, 99)
       STOP
-
-C ** FORMAT DECLARATIONS **
+C FORMAT DECLARATIONS
    75 FORMAT(15H No input data!)
    76 FORMAT(34H At least two inputs are required!)
    77 FORMAT(25H Data file reading error!)
@@ -393,5 +393,4 @@ C *** CALCULATING STANDARD DEVIATION ***
       RSTDDV = SQRT(RVAR)
       RETURN
       END
-
 

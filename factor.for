@@ -6,13 +6,14 @@ C Factorial calculator
 C ******************************************************************************
 
       PROGRAM FACTORIAL
+C VARIABLES
       INTEGER DIN, DOUT
       DOUBLE PRECISION D
 C I/0 DEVICES
       DATA DIN /5/, DOUT /3/
 C     DATA DIN /5/, DOUT /6/
       WRITE(DOUT, 98)
-C GET INPUT DATA
+C INPUT DATA
       WRITE(DOUT, 97)
       READ(DIN, 96, ERR = 78) I
       IF (I .LT. 1) GOTO 79
@@ -20,16 +21,16 @@ C GET INPUT DATA
 C WRITE RESULT
       WRITE(DOUT, 93) I, D
       GOTO 80
-C ERROR: BAD INPUT VALUE
+C BAD INPUT VALUE
    79 WRITE(DOUT, 94)
-C ERROR: BAD INPUT DATA
+      GOTO 80
+C BAD INPUT DATA
    78 WRITE(DOUT, 95)
       GOTO 80
 C END OF PROGRAM
    80 WRITE(DOUT, 99)
       STOP
-
-C ** FORMAT DECLARATIONS **
+C FORMAT DECLARATIONS
    93 FORMAT(I5, 2H!=, D24.16)
    94 FORMAT(34H Number must be greater than zero!)
    95 FORMAT(18H Wrong input data!)
@@ -50,5 +51,4 @@ C *** FACTORIAL CALCULATOR ***
   110 FACT = F
       RETURN
       END
-
 

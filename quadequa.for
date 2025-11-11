@@ -2,7 +2,7 @@ C ******************************************************************************
 C Fortran Month * source code example collection
 C (C) 2025 Pozsar Zsolt <pozsarzs@gmail.com>, Licence: CC0 Universal v1.0
 C quadequa.for
-c Discriminant and root(s) of a quadratic equation f(x)=a*x^2+b*x+c, where a<>0
+c Discriminant and root(s) of a quadratic equation
 C ******************************************************************************
 
       PROGRAM QUADEQUA
@@ -41,8 +41,7 @@ C A IS 0
 C END OF PROGRAM
    80 WRITE(DOUT, 99)
       STOP
-
-C ** FORMAT DECLARATIONS **
+C FORMAT DECLARATIONS
    91 FORMAT(18H Wrong input data!)
    92 FORMAT(40H Has no solution among the real numbers!)
    93 FORMAT(1X, F7.2, 2X, F7.2, 2X, F7.2, 2X, F12.2, 2(2X, F10.2))
@@ -69,5 +68,4 @@ C *** ROOT(S) CALCULATION: X1,2=(-B+-SQRT(B^2-4AC))/2A ***
       X(2) = (-1 * B - SQRT(D)) / (2 * A)
 200   CONTINUE
       END
-
 

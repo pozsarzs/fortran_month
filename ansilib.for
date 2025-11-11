@@ -252,5 +252,4 @@ C *** RESTORE CURSOR POSITION (MODE: DEC/SCO - T/F) ***
  2198 FORMAT('+', A1, '[u') 
  2199 FORMAT('+', A1, '[8') 
       END
-
 
