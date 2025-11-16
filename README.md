@@ -23,10 +23,11 @@ This small source code collection was created on this occasion.
 |  3|Math |`means.for`   |Calculating several means of numbers                | yes |
 |  4|Math |`multab.for`  |Multiplication table                                | no  |
 |  5|Math |`nrmsqrt.for` |Square root calculation with Newton–Raphson method  | yes |
-|  6|Math |`primes.for`  |Calculating prime numbers up to the specified number| yes |
-|  7|Math |`quadequa.for`|Discriminant and root(s) of a quadratic equation    | yes |
-|  8|Other|`ansilib.for` |ANSI Escape sequencies                              | yes |
-|  9|Other|`mbconv.for`  |Modbus register number/address converter utility    | no  |
+|  6|Math |`pi.for`      |Calculating value of Pi with some methods           | yes |
+|  7|Math |`primes.for`  |Calculating prime numbers up to the specified number| yes |
+|  8|Math |`quadequa.for`|Discriminant and root(s) of a quadratic equation    | yes |
+|  9|Other|`ansilib.for` |ANSI Escape sequencies                              | yes |
+| 10|Other|`mbconv.for`  |Modbus register number/address converter utility    | no  |
 
 <img align="left" style="float: left; margin: 0 0 0 0;" alt="Human-AI collaboration" src="help/hac.png">
 <b>Human-machine collaboration</b> The programs are written by a human, the help files are written by AI.<br>
