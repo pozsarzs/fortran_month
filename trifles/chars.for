@@ -1,0 +1,31 @@
+C SPLITTING A LINE INTO CHARACTERS
+
+      PROGRAM CHARS
+      INTEGER DIN, DOUT
+      LOGICAL CHRS(80)
+      INTEGER LINEND
+C SET I/0 DEVICES
+      DATA DIN /5/, DOUT /3/
+C     DATA DIN /5/, DOUT /6/
+C READ A LINE
+      WRITE(DOUT, 99)
+      READ(DIN, 98) CHRS
+C DETECT END OF LINE
+      DO 10 I = 0, 79
+      J = 80 - I
+      IF (CHRS(J) .NE. 32) GOTO 20
+   10 CONTINUE
+C SHOW CHARACTERS
+   20 LINEND = J
+      WRITE(DOUT, 97)
+      DO 30 I = 1, LINEND
+      WRITE(DOUT, 96) I, CHRS(I)
+   30 CONTINUE
+      WRITE(DOUT,95)
+      STOP
+   95 FORMAT(1X)
+   96 FORMAT(1X, I2, 1H:, 1X, A1)
+   97 FORMAT(1X, 'Position: character')
+   98 FORMAT(80A1)
+   99 FORMAT(1H+, 'Enter characters (< 81):', 1X)
+      END
